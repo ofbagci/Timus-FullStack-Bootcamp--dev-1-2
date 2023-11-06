@@ -1,4 +1,4 @@
-"# Timus-FullStack-Bootcamp--dev-1-2" 
+"# Timus-FullStack-Bootcamp-Homework-1-2" 
 <table style="width:100%">
     <tr>
     <th>Pages</th>
