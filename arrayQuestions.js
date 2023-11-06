@@ -69,6 +69,30 @@
 // let obje = Object.assign({}, dolap);
 // console.log(obje);
 
+//                                  ----- 8. Soru -----
+
+/*.slice() metotu parametre olarak başlangıç ve bitiş indeksi olmak üzere iki parametre alır. 
+Başlangıç indeksinden başlayarak bitiş indeksine kadar olan bütün elemanları siler ve yeni bir array oluşturur. 
+Bitiş indeksi ise silinen elemanlara dahil değildir. Ayrıca .slice() metotu original arrayi de değiştirmez.
+
+Eğer tek bir değer parametre olarak yazılırsa bu başlangıç indeksi olarak kabul edilir 
+ve o indeksten başlayarak dizinin geri kalanı silinir.*/
+
+// console.log(numbers.slice(2)); // 2. indexten başlayarak sonraki elemanları siler.
+// console.log(numbers.slice(2, 6)); // 2. indexten başlayarak 6.index dahil olmamak üzere aradaki elemanları siler.
+
+/*.splice() metotu sonuç olarak yeni bir array döndürür ve iki parametre alır. 
+Bunlardan birincisi başlangıç indeksi iken ikinci indeks silinecek eleman sayısını gösterir. 
+Eğer parametre olarak tek bir sayı verilirse bu, o indeksten sonraki bütün elemanları silerek yeni bir array oluştur demektir. 
+Eğer başlangıç indeksi pozitif bir sayıysa dizinin başından, eğer negatif bir sayıysa dizinin sonundan silmeye başlar.*/
+
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//let deleted = numbers.splice(2, 3); // [3, 4, 5] silindi.
+
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let deleted = numbers.splice(-3, 2);  // Burada dizinin sonundan 3 eleman geri gider ve 2 tane elemanı siler.
+
+
 // ----------------------------------------------------------------------------------------------------------
 
 // const arr = [1,2,3,4,5,6,7,7,6,10];
