@@ -22,7 +22,7 @@
             <li>Undefined</li>
             <li>Null</li>
             <li>Symbol</li></ul></dd>
-        <ul style="list-style-type:disc"><li>İlkel Olmayan (Reference) Veri Tipleri: Genel olarak Reference veri türlerine Objects denir. Nesne türü özel bir tür olarak geçer. Diğer tüm türler “ilkel” olarak adlandırılır çünkü değerleri yalnızca tek bir şey içerebilir (bir metin veya sayı vb.). Aksine, nesneler veri koleksiyonlarını ve daha karmaşık varlıkları depolamak için kullanılır.</li></ul>
+        <ul style="list-style-type:disc"><li><b>İlkel Olmayan (Reference) Veri Tipleri:</b> Genel olarak Reference veri türlerine Objects denir. Nesne türü özel bir tür olarak geçer. Diğer tüm türler “ilkel” olarak adlandırılır çünkü değerleri yalnızca tek bir şey içerebilir (bir metin veya sayı vb.). Aksine, nesneler veri koleksiyonlarını ve daha karmaşık varlıkları depolamak için kullanılır.</li></ul>
             <dd><ul style="list-style-type:circle">
             <li>Object</li>
             <li>Array</li>
