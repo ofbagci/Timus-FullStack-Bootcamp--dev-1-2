@@ -297,3 +297,96 @@
     <li>Promise oluştururken bize iki adet işlev sunar bunlar resolve ve rejecttir.</li>
     <li>Resolve başarılı durumlar için, reject ise başarısız durumlar için kullanılır.</li>
     </ul>
+
+<h1>Ekran Çıktıları</h1>
+
+1. Soru:
+
+
+        // Bu kodun çıktısı nedir neden ?
+        function job() {
+        return new Promise(function(resolve, reject) {
+        reject();
+        });
+        }
+        let promise = job();
+        promise
+        .then(function() {
+        console.log('Success 1');
+        })
+        .then(function() {
+        console.log('Success 2');
+        })
+        .then(function() {
+        console.log('Success 3');
+        })
+        .catch(function() {
+        console.log('Error 1');
+        })
+        .then(function() {
+        console.log('Success 4');
+        });
+
+    Oluşturulan Promise'te geriye reject() döndürülmüş. 
+    <p>İlk .then içerisindeki işlem resolve durumunda çalışacaktır. Bize Promise'ten reject() değeri döndürüldüğü için bu bloğu atlıyoruz.</p>
+    <p>İkinci ve üçüncü .then içindeki işlemler de resolve durumunda çalışacağı için atlanır. Promise'ten reject() değeri döndüğü için işlem .catch bloğuna düşer ve konsola "Error 1" çıktısı verilir.</p>
+    <p>Sonuncu .then en sonda yer aldığı için öncekilerde hata olup olmaması bir anlam ifade etmeden çalışır ve konsola "Success 4" çıktısı verilir.</p>
+
+2. Soru:
+
+
+            // Bu kodun çıktısı nedir neden ?
+        function job(state) {
+        return new Promise(function(resolve, reject) {
+        if (state) {
+        resolve('success');
+        } else {
+        reject('error');
+        }
+        });
+        }
+        let promise = job(true);
+        promise
+        .then(function(data) {
+        console.log(data);
+        return job(true);
+        })
+        .then(function(data) {
+        if (data !== 'victory') {
+        throw 'Defeat';
+        }
+        return job(true);
+        })
+        .then(function(data) {
+        console.log(data);
+        })
+        .catch(function(error) {
+        console.log(error);
+        return job(false);
+        })
+        .then(function(data) {
+        console.log(data);
+        return job(true);
+        })
+        .catch(function(error) {
+        console.log(error);
+        return 'Error caught';
+        })
+        .then(function(data) {
+        console.log(data);
+        return new Error('test');
+        })
+        .then(function(data) {
+        console.log('Success:', data.message);
+        })
+        .catch(function(data) {
+        console.log('Error:', data.message);
+        });
+
+    <p>Fonksiyonun state parametresi true ise resolve durumu olacak ve konsola "success" yazdırılacak. Eğer state parametresi true değilse reject durumu olacak ve konsola "error" yazılacak.</p>
+    <p>state parametresi true değer aldığı için ilk .then içindeki Promise başarılı sonuçlanır ve konsola "success" yazılır. Ardından tekrar true değeri döndürülür.</p>
+    <p>İkinci .then'de bir kontrol yapılır ve ilk .then'den gelen değer eğer "victory" değil ise throw çalışır ve konsola "Defeat" yazılır.</p>
+    <p>Üçüncü .then'de geriye true değeri dönmediği için işlem .catch bloğuna düşer ve konsola "error" yazdırılır. Ardından geriye false değeri döndürülür.</p>
+    <p>Dördüncü .then'de de geriye true değeri dönmediği için işlem yine .catch bloğuna düşer ve konsola "Error caught" yazdırılır.</p>
+    <p>Beşinci .then içinde yeni bir Error nesnesi oluşturulur.</p>
+    <p>Altıncı .then sonuncu olduğu için öncekilerde hata olup olmaması bir anlam ifade etmeden çalışır ve konsola "Success: test" yazdırılır. Buradaki test Error nesnesinin mesaj özelliğidir.</p>
